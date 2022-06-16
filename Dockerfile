@@ -15,6 +15,6 @@ RUN mvn clean package -DskipTests
 FROM tomcat:9.0.0-alpine
 WORKDIR /usr/local/tomcat/webapps/
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
-COPY --from=build /app/target/stark-oauth-microservice.war /usr/local/tomcat/webapps/ROOT.war
+COPY --from=build /app/target/spring-boot-data-jpa-mvc-jsp-1.0.jar /usr/local/tomcat/webapps/ROOT.jar
 # Start server
 CMD ["catalina.sh", "run"]
